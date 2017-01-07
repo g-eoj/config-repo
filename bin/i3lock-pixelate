@@ -1,0 +1,7 @@
+#!/usr/bin/env bash
+
+tmpbg='/tmp/lockscreen.png'
+
+scrot "$tmpbg"
+gm convert "$tmpbg" -scale 8% -scale 1250% "$tmpbg"
+i3lock -e -u -i "$tmpbg"

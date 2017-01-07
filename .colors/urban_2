@@ -1,0 +1,16 @@
+! -- Original Author:  dkeg
+! -- Created: 2016
+! -- Title:   urban_2_mod
+
+!#define bg    #312e39
+#define bg    #1c1c1c
+#define blk   #33303b
+#define bblk  #4f4b58
+#define fg    #c0a79a
+#define red   #87404f
+#define grn   #74934e
+#define ylw   #cd9359
+#define blu   #615772
+#define mag   #783e57
+#define cyn   #554757
+#define wht   #c0a79a

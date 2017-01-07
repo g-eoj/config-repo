@@ -1,0 +1,100 @@
+!#include ".colors/urban_1"
+#include ".colors/urban_2"
+
+! font settings --------------------------------------------------------------
+
+Xft.autohint: true
+Xft.antialias: true
+Xft.hinting: true
+Xft.hintstyle: hintslight
+!Xft.dpi: 96
+Xft.rgba: rgb
+Xft.lcdfilter: lcddefault
+
+! xscreensaver ---------------------------------------------------------------
+
+!font settings
+xscreensaver.Dialog.headingFont:        -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.bodyFont:           -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.labelFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.unameFont:          -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.buttonFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+xscreensaver.Dialog.dateFont:           -*-fixed-medium-r-*-*-12-*-*-*-*-*-*-*
+xscreensaver.passwd.passwdFont:         -*-fixed-medium-r-*-*-14-*-*-*-*-*-*-*
+!general dialog box (affects main hostname, username, password text)
+xscreensaver.Dialog.foreground:         #101010
+xscreensaver.Dialog.background:         #D8D8D8
+xscreensaver.Dialog.topShadowColor:     #D8D8D8
+xscreensaver.Dialog.bottomShadowColor:  #D8D8D8
+xscreensaver.Dialog.Button.foreground:  #101010
+xscreensaver.Dialog.Button.background:  #E5E5E5
+!username/password input box and date text colour
+xscreensaver.Dialog.text.foreground:    #101010
+xscreensaver.Dialog.text.background:    #E5E5E5
+xscreensaver.Dialog.internalBorderWidth:24
+xscreensaver.Dialog.borderWidth:        0
+xscreensaver.Dialog.shadowThickness:    2
+!timeout bar (background is actually determined by Dialog.text.background)
+xscreensaver.passwd.thermometer.foreground:  #101010
+xscreensaver.passwd.thermometer.background:  #2E2E2E
+xscreensaver.passwd.thermometer.width:       8
+
+! urxvt -------------------------------------------
+
+URxvt.font: xft:Monospace:size=8
+URxvt.boldFont: xft:Monospace:Bold:size=8
+!URxvt.letterSpace: -2
+! Add fallback fonts as laid out in `man 1 urxvt` under "font:" in the RESOURCES section
+
+URxvt.iso14755: false
+URxvt.iso14755_52: false
+
+URxvt.internalBorder: 0
+URxvt.externalBorder: 0
+!URxvt.borderColor: #ff0000 
+!URxvt.borderLess: true
+URxvt.scrollstyle: plain
+!URxvt.secondaryScreen: false
+!URxvt.secondaryScroll: false
+URxvt.scrollBar: false
+!URxvt.scrollBar_right: true
+!URxvt.iconFile: /usr/share/icons/Faenza-Bunsen-common/apps/48/utilities-terminal.png
+URxvt.urgentOnBell: true
+
+! scrollback buffer lines - 65535 is max (64 is default)
+URxvt.saveLines:16384
+
+! True Transparency, opacity percentage set in square brackets before URxvt.background colour
+!URxvt.depth: 32
+
+! Clickble URLs
+URxvt.perl-ext-common: default,matcher
+URxvt.url-launcher: /usr/bin/x-www-browser
+URxvt.matcher.button: 3
+
+! xterm -------------------------------------------
+
+xterm*borderWidth: 0
+
+! Colors -------------------------------------------
+
+*background:  bg
+*foreground:  fg
+*cursorColor: cyn
+*color0:      blk
+*color8:      bblk
+*color1:      red
+*color9:      red
+*color2:      grn
+*color10:     grn
+*color3:      ylw
+*color11:     ylw
+*color4:      blu
+*color12:     blu
+*color5:      mag
+*color13:     mag
+*color6:      cyn
+*color14:     cyn
+*color7:      wht
+*color15:     wht
+

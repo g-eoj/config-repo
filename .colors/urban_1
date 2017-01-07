@@ -1,0 +1,15 @@
+! -- Author:  dkeg
+! -- Created: 2016
+! -- Title:   urban_1
+
+#define bg    #2a2437
+#define blk   #30293f
+#define bblk  #4f4b58
+#define fg    #c0a79a
+#define red   #b42e48
+#define grn   #74934e
+#define ylw   #cd9359
+#define blu   #615772
+#define mag   #783e57
+#define cyn   #554757
+#define wht   #c0a79a
