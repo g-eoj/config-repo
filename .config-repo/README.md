@@ -1,34 +1,39 @@
 #Manage Config Files
+*This README is an adaptation of instructions found here: https://developer.atlassian.com/blog/2016/02/best-way-to-store-dotfiles-git-bare-repo/*
 
 The technique consists in storing a Git bare repository in a "side" folder (like $HOME/.config-repo) using a specially crafted alias so that commands are run against that repository and not the usual .git local folder, which would interfere with any other Git repositories around.
 
-##Initial setup
+##Setup repository
 
 If you haven't been tracking your configurations in a Git repository before, you can start using this technique easily with these lines:
 
     git init --bare $HOME/.config-repo
     alias config='/usr/bin/git --git-dir=$HOME/.config-repo/ --work-tree=$HOME'
     config config --local status.showUntrackedFiles no
-    echo "alias config='/usr/bin/git --git-dir=$HOME/.config-repo/ --work-tree=$HOME'" >> $HOME/.bashrc
+    echo "alias config='/usr/bin/git --git-dir=$HOME/.config-repo/ --work-tree=$HOME'" >> $HOME/.bash_aliases
 
 After you've executed the setup any file within the $HOME folder can be versioned with normal commands, replacing git with your newly created config alias, like:
 
     config status
     config add .vimrc
-    config commit -m "Add vimrc"
-    config add .bashrc
-    config commit -m "Add bashrc"
+    config commit -m "Add .vimrc"
     config push
 
-##Install config files onto a new system (or migrate to this setup)
+##Setup config files on a new system
 
-If you already store your configuration/dotfiles in a Git repository, on a new system you can migrate to this setup with the following steps:
+If you already store your configuration/dotfiles in a Git repository, on a new system you can migrate to this setup with the the setup.sh script in the repository *or* by following the step by step instructions.
 
-Prior to the installation make sure you have committed the alias to your .bashrc or .zsh:
+Prior to the installation make sure you have committed the alias to your .bashrc or .bash_aliases:
 
     alias config='/usr/bin/git --git-dir=$HOME/.config-repo/ --work-tree=$HOME'
 
-And that your source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems:
+###Use script
+
+[Download setup.sh](.config-repo/setup.sh) from the repository and run it. You may need to change the Git repository url in the script to your own first.
+
+###Step by step
+
+Make sure that your source repository ignores the folder where you'll clone it, so that you don't create weird recursion problems:
 
     echo ".config-repo" >> .gitignore
 
@@ -70,25 +75,6 @@ You're done, from now on you can now type config commands to add and update your
 
     config status
     config add .vimrc
-    config commit -m "Add vimrc"
-    config add .bashrc
-    config commit -m "Add bashrc"
+    config commit -m "Add .vimrc"
     config push
-
-### Install script
-
-    #git clone --bare https://bitbucket.org/durdn/cfg.git $HOME/.config-repo
-    function config {
-       /usr/bin/git --git-dir=$HOME/.config-repo/ --work-tree=$HOME $@
-    }
-    mkdir -p .config-backup
-    config checkout
-    if [ $? = 0 ]; then
-      echo "Checked out config.";
-      else
-        echo "Backing up pre-existing dot files.";
-        config checkout 2>&1 | egrep "\s+\." | awk {'print $1'} | xargs -I{} mv {} .config-backup/{}
-    fi;
-    config checkout
-    config config status.showUntrackedFiles no
 
