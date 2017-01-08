@@ -29,7 +29,7 @@ Prior to the installation make sure you have committed the alias to your .bashrc
 
 ###Use script
 
-[Download setup.sh](.config-repo/setup.sh) from the repository and run it. You may need to change the Git repository url in the script to your own first.
+[Download setup.sh](./setup.sh) from the repository and run it. You may need to change the Git repository url in the script to your own first.
 
 ###Step by step
 
